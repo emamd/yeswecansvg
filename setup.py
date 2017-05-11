@@ -20,7 +20,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'yeswecansvg=yeswecansvg.yeswecansvg',
+            'yeswecansvg=yeswecansvg.yeswecansvg:main',
         ],
     },
 )

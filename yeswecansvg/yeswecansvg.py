@@ -1,12 +1,14 @@
 import re
 import argparse
 
-parser = argparse.ArgumentParser(description="Convert an SVG's font declarations so that they open in Illustrator.")
-parser.add_argument('filename', help="Name of SVG file to be cleaned. Will output as filename_cleaned.svg")
-parser.add_argument('-f', '--font', default="\'FranklinITCStd-Light\'", help="Font to use for replacement. Defaults to 'FranklinITCStd-Light'.")
-parser.add_argument('-b', '--bold_font', default="\'FranklinITCStd-Bold\'", help="Bold font to use for replacement. Defaults to 'FranklinITCStd-Bold'.")
 
-args = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser(description="Convert an SVG's font declarations so that they open in Illustrator.")
+    parser.add_argument('filename', help="Name of SVG file to be cleaned. Will output as filename_cleaned.svg")
+    parser.add_argument('-f', '--font', default="\'FranklinITCStd-Light\'", help="Font to use for replacement. Defaults to 'FranklinITCStd-Light'.")
+    parser.add_argument('-b', '--bold_font', default="\'FranklinITCStd-Bold\'", help="Bold font to use for replacement. Defaults to 'FranklinITCStd-Bold'.")
+    args = parser.parse_args()
+    convert_svg_for_illustrator(args.filename, args.font, args.bold_font)
 
 
 def convert_svg_for_illustrator(filename, font="\'FranklinITCStd-Light\'", bold_font="\'FranklinITCStd-Bold\'"):
@@ -45,8 +47,3 @@ def convert_svg_for_illustrator(filename, font="\'FranklinITCStd-Light\'", bold_
                 outfile.write(line)
 
             print("Exported cleaned file to %s" % outfilename)
-
-
-
-if __name__ == "__main__":
-    convert_svg_for_illustrator(args.filename, args.font, args.bold_font)
