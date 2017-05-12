@@ -1,4 +1,6 @@
 .DS_Store
-
+.coverage
 *.egg-info
 __pycache__/
+dist/
+build/
